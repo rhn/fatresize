@@ -595,7 +595,7 @@ int main(int argc, char **argv) {
   printf("part(start=%llu, end=%llu, length=%llu)\n",
     part_geom.start, part_geom.end, part_geom.length);
 
-  if (opts.info || opts.size == LLONG_MAX) {
+  if (opts.info || opts.size == LLONG_MAX || opts.pnum == -1) {
     printd(3, "ped_file_system_open()\n");
     fs = ped_file_system_open(&part_geom);
     if (!fs) {
@@ -655,11 +655,11 @@ int main(int argc, char **argv) {
     return 1;
   }
 
-  printd(3, "snap_to_boundaries()\n");
-  snap_to_boundaries(&new_geom, &part_geom, disk, range_start, range_end);
+  //printd(3, "snap_to_boundaries()\n");
+  //snap_to_boundaries(&new_geom, &part_geom, disk, range_start, range_end);
 
-  printd(3, "ped_file_system_open()\n");
-  fs = ped_file_system_open(&part->geom);
+  //printd(3, "ped_file_system_open()\n");
+  //fs = ped_file_system_open(&part->geom);
   if (!fs) {
     return 1;
   }
